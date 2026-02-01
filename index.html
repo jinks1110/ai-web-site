@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 로또 번호 생성기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap');
+        body { font-family: 'Pretendard', sans-serif; }
+        .lotto-ball {
+            transition: transform 0.3s ease;
+        }
+        .lotto-ball:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300 min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-md w-full bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 text-center">
+        <div class="flex justify-end mb-4">
+            <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-yellow-300">
+                <span id="dark-icon">🌙</span>
+            </button>
+        </div>
+
+        <h1 class="text-3xl font-bold mb-2 text-gray-800 dark:text-white">로또 번호 생성기</h1>
+        <p class="text-gray-500 dark:text-gray-400 mb-8">AI가 추천하는 행운의 번호</p>
+
+        <div id="numbers" class="flex flex-wrap justify-center gap-3 mb-10 min-h-[60px]">
+            </div>
+
+        <button onclick="generateNumbers()" class="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-lg transition-all active:scale-95">
+            번호 생성하기
+        </button>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            document.getElementById('dark-icon').innerText = isDark ? '☀️' : '🌙';
+        }
+
+        function generateNumbers() {
+            const container = document.getElementById('numbers');
+            container.innerHTML = '';
+            
+            const numbers = [];
+            while(numbers.length < 6) {
+                const num = Math.floor(Math.random() * 45) + 1;
+                if(!numbers.includes(num)) numbers.push(num);
+            }
+            numbers.sort((a, b) => a - b);
+
+            numbers.forEach((num, index) => {
+                setTimeout(() => {
+                    const ball = document.createElement('div');
+                    ball.className = `lotto-ball w-12 h-12 flex items-center justify-center rounded-full text-white font-bold shadow-md ${getBallColor(num)}`;
+                    ball.innerText = num;
+                    container.appendChild(ball);
+                }, index * 100);
+            });
+        }
+
+        function getBallColor(num) {
+            if (num <= 10) return 'bg-yellow-400';
+            if (num <= 20) return 'bg-blue-400';
+            if (num <= 30) return 'bg-red-400';
+            if (num <= 40) return 'bg-gray-400';
+            return 'bg-green-400';
+        }
+    </script>
+</body>
+</html>
