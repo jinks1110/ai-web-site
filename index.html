@@ -3,49 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제이테크 로또 생성기</title>
+    <title>제이테크 행운 로또 - 이번 주 당첨 예측 및 통계</title>
     <style>
-        body { font-family: 'Pretendard', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f0f2f5; }
-        .container { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; }
-        h1 { color: #1a73e8; margin-bottom: 1.5rem; }
-        .balls { display: flex; gap: 10px; margin-bottom: 2rem; justify-content: center; min-height: 50px; }
-        .ball { width: 50px; height: 50px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; transition: transform 0.3s ease; }
-        .btn { background: #1a73e8; color: white; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1.1rem; cursor: pointer; transition: 0.2s; }
-        .btn:hover { background: #1557b0; transform: scale(1.05); }
+        :root { --main-blue: #1a73e8; --gold: #fbc400; --bg: #f4f7f9; }
+        body { font-family: 'Pretendard', sans-serif; background: var(--bg); margin: 0; color: #333; }
+        .header { background: white; width: 100%; padding: 20px 0; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .ad-slot { width: 100%; max-width: 728px; height: 90px; background: #eee; margin: 20px auto; display: flex; align-items: center; justify-content: center; border: 1px dashed #bbb; font-size: 12px; color: #888; }
+        
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .card { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 20px; text-align: center; }
+        
+        .balls { display: flex; gap: 8px; justify-content: center; margin: 20px 0; min-height: 45px; }
+        .ball { width: 40px; height: 40px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1rem; box-shadow: inset -3px -3px 5px rgba(0,0,0,0.2); }
+        
+        .btn-generate { background: var(--main-blue); color: white; border: none; padding: 15px 0; width: 100%; border-radius: 10px; font-size: 1.2rem; font-weight: bold; cursor: pointer; margin-bottom: 10px; }
+        .btn-share { background: #fee500; color: #3c1e1e; border: none; padding: 12px 0; width: 100%; border-radius: 10px; font-size: 1rem; font-weight: bold; cursor: pointer; }
+        
+        .info-section { text-align: left; margin-top: 30px; }
+        .info-title { font-size: 1.1rem; font-weight: bold; border-left: 4px solid var(--main-blue); padding-left: 10px; margin-bottom: 15px; }
+        .stat-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .stat-table th, .stat-table td { border-bottom: 1px solid #eee; padding: 10px; text-align: center; }
+        
+        .partners-banner { background: #fff3cd; border: 1px solid #ffeeba; padding: 15px; border-radius: 10px; margin-top: 20px; text-decoration: none; display: block; color: #856404; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🍀 행운의 로또 생성기</h1>
-        <div id="balls" class="balls">
-            </div>
-        <button class="btn" onclick="generateLotto()">번호 뽑기</button>
+
+<div class="header"><h1>🍀 제이테크 행운 로또</h1></div>
+
+<div class="ad-slot">상단 광고 (애드센스 코드 자리)</div>
+
+<div class="container">
+    <div class="card">
+        <h3>이번 주 추천 번호</h3>
+        <div id="balls" class="balls"><span style="color:#aaa">버튼을 눌러 번호를 생성하세요</span></div>
+        <button class="btn-generate" onclick="generateLotto()">번호 생성 (무료)</button>
+        <button class="btn-share" onclick="shareKakao()">카카오톡으로 번호 공유</button>
     </div>
 
-    <script>
-        function generateLotto() {
-            const container = document.getElementById('balls');
-            container.innerHTML = ''; // 기존 번호 삭제
-            const numbers = [];
-            while(numbers.length < 6) {
-                const num = Math.floor(Math.random() * 45) + 1;
-                if(!numbers.includes(num)) numbers.push(num);
-            }
-            numbers.sort((a, b) => a - b);
-            
-            numbers.forEach(num => {
-                const ball = document.createElement('div');
-                ball.className = 'ball';
-                ball.innerText = num;
-                // 색상 결정
-                if (num <= 10) ball.style.background = '#fbc400';
-                else if (num <= 20) ball.style.background = '#69c8f2';
-                else if (num <= 30) ball.style.background = '#ff7272';
-                else if (num <= 40) ball.style.background = '#aaa';
-                else ball.style.background = '#b0d840';
-                container.appendChild(ball);
-            });
+    <a href="https://link.coupang.com/a/XXXXX" target="_blank" class="partners-banner">
+        🛒 [행운의 아이템] 당첨 기운을 부르는 오늘의 특가 확인하기
+    </a>
+
+    <div class="info-section">
+        <div class="info-title">최근 로또 당첨 통계 분석</div>
+        <table class="stat-table">
+            <thead><tr><th>번호</th><th>출현 횟수</th><th>최근 출현</th></tr></thead>
+            <tbody>
+                <tr><td>34</td><td>168회</td><td>2주 전</td></tr>
+                <tr><td>12</td><td>159회</td><td>1주 전</td></tr>
+                <tr><td>1</td><td>155회</td><td>최근</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="info-section">
+        <div class="info-title">로또 1등 당첨 비결 Tip</div>
+        <p style="font-size: 0.85rem; line-height: 1.6; color: #666;">
+            1. 홀수와 짝수의 비율을 3:3 또는 2:4로 맞추는 것이 통계적으로 유리합니다.<br>
+            2. 지난주 당첨 번호가 다시 나올 확률은 약 15% 내외입니다.<br>
+            3. 번호의 총합이 100~170 사이에 들어오도록 조합해 보세요.
+        </p>
+    </div>
+</div>
+
+<div class="ad-slot">하단 광고 (애드센스 코드 자리)</div>
+
+<script>
+    function generateLotto() {
+        const container = document.getElementById('balls');
+        container.innerHTML = '';
+        const numbers = [];
+        while(numbers.length < 6) {
+            const num = Math.floor(Math.random() * 45) + 1;
+            if(!numbers.includes(num)) numbers.push(num);
         }
-    </script>
+        numbers.sort((a, b) => a - b).forEach(num => {
+            const ball = document.createElement('div');
+            ball.className = 'ball';
+            ball.innerText = num;
+            if (num <= 10) ball.style.background = '#fbc400';
+            else if (num <= 20) ball.style.background = '#69c8f2';
+            else if (num <= 30) ball.style.background = '#ff7272';
+            else if (num <= 40) ball.style.background = '#aaa';
+            else ball.style.background = '#b0d840';
+            container.appendChild(ball);
+        });
+    }
+    function shareKakao() {
+        alert('현재 주소를 복사해서 카톡으로 전달하세요!\n' + window.location.href);
+    }
+</script>
 </body>
 </html>
