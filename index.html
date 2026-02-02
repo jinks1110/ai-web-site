@@ -13,20 +13,15 @@
         .balls { display: flex; gap: 12px; justify-content: center; margin: 30px 0; min-height: 55px; }
         .ball { width: 48px; height: 48px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
         .btn-generate { background: var(--main-navy); color: var(--accent-gold); border: 2px solid var(--accent-gold); padding: 18px 0; width: 100%; border-radius: 12px; font-size: 1.3rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        
-        /* 전문 콘텐츠 영역 */
         .content-section { background: white; border-radius: 20px; padding: 40px; margin-top: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: left; }
         .section-title { border-left: 6px solid var(--main-navy); padding-left: 15px; margin-bottom: 30px; color: var(--main-navy); font-size: 1.4rem; }
         .article { margin-bottom: 40px; }
         .article h3 { color: #1e3a8a; font-size: 1.2rem; margin-bottom: 10px; }
         .article p { color: var(--text-gray); font-size: 1rem; margin-bottom: 15px; }
-        
-        /* 백과사전식 FAQ/용어 영역 */
         .faq-box { background: #f9f9f9; padding: 20px; border-radius: 10px; margin-top: 20px; }
         .faq-item { margin-bottom: 20px; }
         .faq-q { font-weight: bold; color: var(--main-navy); display: block; }
         .faq-a { font-size: 0.95rem; color: var(--text-gray); display: block; margin-top: 5px; }
-
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); overflow-y: auto; }
         .modal-content { background: white; margin: 10% auto; padding: 35px; width: 85%; max-width: 600px; border-radius: 20px; white-space: pre-wrap; position: relative; }
         .close { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; }
@@ -51,32 +46,24 @@
 
     <div class="content-section">
         <h2 class="section-title">📊 데이터 사이언스 기반 분석 리포트</h2>
-        
         <div class="article">
             <h3>1. 로또 당첨 확률의 수학적 이해</h3>
-            <p>로또 6/45의 이론적 당첨 확률은 8,145,060분의 1입니다. 하지만 이를 단순 운으로만 치부하기엔 역대 데이터에서 발견되는 일정한 패턴이 존재합니다. 본 연구소는 번호 간의 상관계수를 분석하여, 독립 시행 안에서도 확률 밀도가 높은 구간을 탐색합니다.</p>
+            <p>로또 6/45의 이론적 당첨 확률은 8,145,060분의 1입니다. 본 연구소는 번호 간의 상관계수를 분석하여, 독립 시행 안에서도 확률 밀도가 높은 구간을 탐색합니다.</p>
         </div>
-
         <div class="article">
             <h3>2. 홀짝 및 고저 비율 최적화 모델</h3>
-            <p>번호를 선택할 때 가장 기본이 되는 모델은 홀수와 짝수의 비율(Odd:Even)입니다. 통계적으로 3:3 비율이 약 33%의 빈도로 가장 많이 출현하며, 번호의 총합이 121에서 160 사이일 때 당첨 확률이 극대화되는 경향을 보입니다. 또한 1~22 사이의 '저번호'와 23~45 사이의 '고번호' 배분 역시 3:3 전략이 유효합니다.</p>
+            <p>통계적으로 3:3 비율이 약 33%의 빈도로 가장 많이 출현하며, 번호의 총합이 121에서 160 사이일 때 당첨 확률이 극대화되는 경향을 보입니다.</p>
         </div>
-
         <div class="faq-box">
             <h3 style="margin-top:0;">❓ 자주 묻는 질문 (FAQ)</h3>
             <div class="faq-item">
                 <span class="faq-q">Q: 자동으로 뽑는 것보다 수동이 당첨 확률이 높은가요?</span>
-                <span class="faq-a">A: 확률적으로는 동일합니다. 하지만 수동은 번호의 중복 선택이 가능하여 1등 당첨 시 당첨금을 나누는 인원이 많아질 수 있는 심리적 요인이 있습니다.</span>
+                <span class="faq-a">A: 확률적으로는 동일합니다. 다만 수동은 번호의 중복 선택을 피할 수 있는 전략적 요소가 있습니다.</span>
             </div>
             <div class="faq-item">
                 <span class="faq-q">Q: 지난주 당첨 번호가 또 나올 수도 있나요?</span>
-                <span class="faq-a">A: 이를 '이월수'라고 합니다. 평균적으로 매 회차 1개 내외의 번호가 전 회차에서 재출현할 확률은 약 40%에 달합니다.</span>
+                <span class="faq-a">A: 평균적으로 매 회차 1개 내외의 이월수가 발생할 확률은 약 40%에 달합니다.</span>
             </div>
-        </div>
-
-        <div class="article" style="margin-top:40px;">
-            <h3>3. 로또 알고리즘 랩의 추출 철학</h3>
-            <p>본 사이트의 알고리즘은 무작위 난수 생성에 '회차별 가중치'를 더합니다. 장기간 미출현한 번호(Long-term Cold Numbers)와 최근 5주 이내 핫 넘버(Hot Numbers)의 균형을 맞추어 최적의 밸런스를 제공하는 것이 저희의 목표입니다.</p>
         </div>
     </div>
 
@@ -119,9 +106,9 @@
     }
 
     const contents = {
-        privacy: { title: "개인정보처리방침", body: "Lotto Algo Lab은 이용자의 개인정보를 소중히 다룹니다.\n1. 수집 항목: 본 사이트는 어떠한 개인정보(이름, 연락처 등)도 수집하지 않습니다.\n2. 데이터 보관: 생성된 번호는 서버에 저장되지 않으며 사용 즉시 휘발됩니다.\n3. 쿠키 사용: 사용자 환경 설정을 위해 브라우저 쿠키를 사용할 수 있으나, 이는 개인 식별 정보를 포함하지 않습니다." },
-        terms: { title: "이용약관", body: "제1조 (목적)\n본 약관은 Lotto Algo Lab이 제공하는 서비스의 이용 조건을 규정합니다.\n제2조 (책임의 한계)\n본 사이트에서 제공하는 번호는 통계적 추정치이며 실제 당첨을 보장하지 않습니다. 로또 구매에 따른 결과는 전적으로 이용자 본인에게 있습니다.\n제3조 (사행성 방지)\n과도한 복권 구매를 지양하며, 건전한 여가 문화로서 서비스를 이용해 주시기 바랍니다." },
-        cs: { title: "고객지원센터", body: "운영 주체: Lotto Algo Lab\n책임자: 진경섭 대표\n이메일 문의: Jtech1110@gmail.com\n운영시간: 평일 10:00 - 17:00 (주말 및 공휴일 휴무)\n* 문의사항은 이메일을 통해 접수해 주시면 24시간 이내에 답변드리겠습니다." }
+        privacy: { title: "개인정보처리방침", body: "Lotto Algo Lab은 이용자의 개인정보를 소집하거나 저장하지 않습니다." },
+        terms: { title: "이용약관", body: "본 서비스는 재미를 위한 것이며 당첨 결과에 대한 책임은 지지 않습니다." },
+        cs: { title: "고객지원센터", body: "문의처: Lotto Algo Lab 운영팀\n이메일: Jtech1110@gmail.com\n평일 10:00 - 17:00 운영" }
     };
 
     function openModal(type) {
