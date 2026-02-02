@@ -3,64 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제이테크 로또 연구소 - 당첨 통계 및 분석 전문 사이트</title>
+    <title>제이테크 로또 연구소 - 전문 분석 시스템</title>
     <style>
         :root { --main-blue: #1a73e8; --bg: #f8f9fa; }
         body { font-family: 'Pretendard', sans-serif; background: var(--bg); margin: 0; color: #333; line-height: 1.6; }
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
         .card { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; margin-bottom: 30px; }
-        
-        /* 로또 공 디자인 */
         .balls { display: flex; gap: 10px; justify-content: center; margin: 25px 0; }
         .ball { width: 45px; height: 45px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; box-shadow: inset -3px -3px 5px rgba(0,0,0,0.2); }
-        
         .btn-gen { background: var(--main-blue); color: white; border: none; padding: 18px 0; width: 100%; border-radius: 12px; font-size: 1.3rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn-gen:hover { background: #1557b0; transform: scale(1.02); }
+        
+        /* 팝업(모달) 스타일 */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); overflow-y: auto; }
+        .modal-content { background: white; margin: 10% auto; padding: 30px; width: 80%; max-width: 600px; border-radius: 15px; white-space: pre-wrap; font-size: 0.9rem; position: relative; }
+        .close { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; font-weight: bold; }
 
-        /* [핵심] 애드센스 승인용 전문 콘텐츠 영역 */
-        .content-section { background: white; border-radius: 15px; padding: 40px; margin-top: 30px; text-align: left; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .content-section h2 { border-left: 5px solid var(--main-blue); padding-left: 15px; color: #222; margin-bottom: 25px; }
-        .article { margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
-        .article h3 { color: var(--main-blue); font-size: 1.2rem; }
-        .article p { color: #555; font-size: 1rem; }
-
-        /* 하단 법적 필수 링크 */
         .footer { text-align: center; padding: 40px 0; color: #888; font-size: 0.8rem; }
-        .footer a { color: #888; text-decoration: none; margin: 0 10px; }
+        .footer span { cursor: pointer; text-decoration: underline; margin: 0 10px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="card">
-        <h1>🍀 제이테크 행운 로또 연구소</h1>
-        <p>빅데이터 분석 기반 이번 주 예상 번호 추출기</p>
+        <h1>🍀 제이테크 로또 연구소</h1>
         <div id="balls" class="balls"><span style="color:#aaa">추천 번호가 여기에 나타납니다</span></div>
         <button class="btn-gen" onclick="generateLotto()">행운의 번호 무료 추출</button>
     </div>
 
-    <div class="content-section">
-        <h2>📊 로또 당첨 분석 리포트</h2>
-        
-        <div class="article">
-            <h3>1. 로또 당첨 확률을 높이는 수학적 조합법</h3>
-            <p>로또 1등 당첨 확률은 814만 분의 1입니다. 하지만 통계학적으로 접근하면 당첨 확률을 미세하게 조정할 수 있습니다. 전문가들은 '홀수와 짝수의 조화'를 강조합니다. 역대 당첨 번호를 분석해보면 홀수와 짝수가 3:3 또는 2:4의 비율로 섞여 있을 때 당첨 확률이 가장 높았습니다. 또한, 모든 번호의 합이 121에서 160 사이일 때 당첨 가능성이 집중되는 경향을 보입니다.</p>
-        </div>
-
-        <div class="article">
-            <h3>2. 꿈 해몽과 로또 번호의 상관관계</h3>
-            <p>한국인들이 가장 선호하는 번호 선택 기준 중 하나는 '꿈'입니다. 예를 들어 불이 나는 꿈은 '화기(火氣)'를 상징하며 강력한 당첨 기운을 의미합니다. 조상님이 나타나거나 물을 보는 꿈 또한 길몽으로 분류됩니다. 본 연구소에서는 이러한 전통적인 해몽 데이터와 최신 당첨 통계를 결합하여 사용자에게 최적의 번호를 제안하고 있습니다.</p>
-        </div>
-
-        <div class="article">
-            <h3>3. 전국 로또 명당의 비밀과 배당의 원리</h3>
-            <p>특정 지역에서 1등이 수십 번 배출되는 이유는 단순히 운일까요? 통계적으로 보면 판매량이 압도적인 곳에서 당첨자가 많이 나오는 것은 당연한 이치입니다. 하지만 명당이라 불리는 곳의 기운을 무시할 수는 없습니다. 본 사이트는 전국의 당첨 데이터를 실시간으로 모니터링하여 번호 생성 알고리즘에 반영하고 있습니다.</p>
-        </div>
-    </div>
-
     <div class="footer">
         <p>&copy; 2026 J-Tech. All rights reserved.</p>
-        <a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="#">고객센터</a>
+        <span onclick="openModal('privacy')">개인정보처리방침</span> | 
+        <span onclick="openModal('terms')">이용약관</span> | 
+        <span onclick="openModal('cs')">고객센터</span>
+    </div>
+</div>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle">제목</h2>
+        <div id="modalBody">내용</div>
     </div>
 </div>
 
@@ -84,6 +67,26 @@
             else ball.style.background = '#b0d840';
             container.appendChild(ball);
         });
+    }
+
+    const contents = {
+        privacy: { title: "개인정보처리방침", body: "제이테크 연구소는 사용자의 어떠한 개인정보도 수집하거나 저장하지 않습니다. 모든 번호 생성은 사용자의 브라우저에서 로컬로 이루어집니다." },
+        terms: { title: "이용약관", body: "본 사이트에서 제공하는 번호는 통계적 재미를 위한 것이며, 실제 당첨을 보장하지 않습니다. 과도한 복권 구매는 사행성을 조장할 수 있으니 주의 바랍니다." },
+        cs: { title: "고객센터", body: "문의사항이 있으시면 아래 이메일로 연락 주시기 바랍니다.\n이메일: Jtech1110@gmail.com\n운영시간: 평일 09:00 ~ 18:00" }
+    };
+
+    function openModal(type) {
+        document.getElementById('modalTitle').innerText = contents[type].title;
+        document.getElementById('modalBody').innerText = contents[type].body;
+        document.getElementById('myModal').style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById('myModal').style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('myModal')) closeModal();
     }
 </script>
 </body>
