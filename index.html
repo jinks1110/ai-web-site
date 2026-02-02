@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9173956849631478" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또 알고리즘 랩 | Lotto Algo Lab - 빅데이터 분석 기반 당첨 전략 포털</title>
+    <title>로또 알고리즘 랩 | Lotto Algo Lab - 빅데이터 분석 및 당첨 전략 포털</title>
     <style>
         :root { --main-navy: #0a1931; --accent-gold: #ffc107; --bg-light: #f4f7fb; --text-gray: #444; }
         body { font-family: 'Pretendard', sans-serif; background: var(--bg-light); margin: 0; color: #333; line-height: 1.8; }
@@ -13,24 +14,18 @@
         .balls { display: flex; gap: 15px; justify-content: center; margin: 35px 0; min-height: 60px; flex-wrap: wrap; }
         .ball { width: 52px; height: 52px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.3rem; box-shadow: 0 5px 10px rgba(0,0,0,0.2); }
         .btn-generate { background: var(--main-navy); color: var(--accent-gold); border: 2px solid var(--accent-gold); padding: 20px 0; width: 100%; border-radius: 15px; font-size: 1.4rem; font-weight: bold; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(10, 25, 49, 0.3); }
-        .btn-generate:hover { background: var(--accent-gold); color: var(--main-navy); transform: translateY(-2px); }
-        
-        /* 정보 폭격 섹션 디자인 */
         .content-section { background: white; border-radius: 25px; padding: 50px; margin-top: 40px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); text-align: left; }
         .section-title { border-left: 8px solid var(--main-navy); padding-left: 20px; margin-bottom: 40px; color: var(--main-navy); font-size: 1.8rem; font-weight: 800; }
         .article { margin-bottom: 60px; border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
         .article h3 { color: #1e3a8a; font-size: 1.4rem; margin-bottom: 20px; font-weight: 700; }
         .article p { color: var(--text-gray); font-size: 1.05rem; margin-bottom: 20px; text-align: justify; }
-        
         .data-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95rem; border-radius: 10px; overflow: hidden; }
         .data-table th { background: var(--main-navy); padding: 15px; color: white; border: 1px solid #ddd; }
         .data-table td { padding: 15px; border: 1px solid #ddd; text-align: center; background: #fff; }
-
         .highlight-box { background: #fff8e1; border-left: 5px solid var(--accent-gold); padding: 25px; margin: 25px 0; border-radius: 0 15px 15px 0; }
         .faq-item { margin-bottom: 35px; background: #fafafa; padding: 20px; border-radius: 15px; }
         .faq-q { font-weight: 800; color: var(--main-navy); font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 10px; display: block; }
         .faq-a { font-size: 1rem; color: #555; line-height: 1.8; display: block; }
-
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); overflow-y: auto; }
         .modal-content { background: white; margin: 5% auto; padding: 40px; width: 90%; max-width: 650px; border-radius: 25px; white-space: pre-wrap; position: relative; }
         .close { position: absolute; right: 25px; top: 20px; font-size: 32px; cursor: pointer; color: #aaa; }
@@ -48,64 +43,26 @@
 <div class="container">
     <div class="main-card">
         <h3>Quantum Analysis Engine v4.2</h3>
-        <p style="color: #666; font-size: 1rem;">과거 당첨 패턴의 통계적 유의성을 분석하여 최적의 조합 가중치를 산출합니다.</p>
-        <div id="balls" class="balls"><span style="color:#aaa">알고리즘 시스템 엔진 대기 중...</span></div>
-        <button class="btn-generate" onclick="generateLotto()">신규 알고리즘 조합 생성</button>
+        <p style="color: #666; font-size: 1rem;">로또 알고리즘 연구소의 딥러닝 패턴 가중치를 적용한 최적의 조합입니다.</p>
+        <div id="balls" class="balls"><span style="color:#aaa">알고리즘 분석 대기 중...</span></div>
+        <button class="btn-generate" onclick="generateLotto()">신규 분석 조합 추출하기</button>
     </div>
 
     <div class="content-section">
-        <h2 class="section-title">📊 로또 알고리즘 심층 분석 보고서</h2>
-        
+        <h2 class="section-title">📊 로또 알고리즘 심층 분석 리포트</h2>
         <div class="article">
-            <h3>1. 확률의 재정의: 대수의 법칙과 회귀 분석</h3>
-            <p>로또는 매 회차 1/8,145,060의 확률을 가진 독립 시행입니다. 하지만 대수의 법칙에 따르면, 시행 횟수가 무한히 반복될수록 각 번호의 출현 빈도는 이론적 확률인 13.33%에 수렴하게 됩니다. 로또 알고리즘 랩은 이 수렴 과정에서 발생하는 '편차'에 주목합니다. 평균보다 과하게 적게 나온 번호(Cold Number)와 과하게 많이 나온 번호(Hot Number)의 추세를 분석하여, 확률이 평균으로 회귀하려는 시점을 포착하는 것이 분석의 핵심입니다.</p>
+            <h3>1. 확률의 재정의: 대수의 법칙과 회귀 이론</h3>
+            <p>로또 알고리즘 랩은 지난 20년간의 당첨 데이터를 정규 분포 곡선에 대입하여, 현재 시점에서 통계적 유의성이 가장 높은 구간의 번호 조합을 산출해냅니다.</p>
         </div>
-
         <div class="article">
-            <h3>2. 홀짝 배합 및 고저 분포의 최적화 모델</h3>
-            <p>번호 선택 시 가장 중요한 변수는 균형(Balance)입니다. 지난 1,000회 이상의 당첨 데이터를 분석했을 때, 홀수와 짝수가 3:3으로 배합된 회차는 전체의 약 33%를 차지합니다. 반면 0:6 또는 6:0과 같은 극단적인 배합은 1% 미만의 낮은 빈도를 보입니다. 또한, 번호를 낮은 수(1~22)와 높은 수(23~45)로 나누었을 때도 3:3 배합이 가장 높은 당첨 빈도를 기록했습니다.</p>
+            <h3>2. 홀짝 배합 및 고저 분포의 밸런스 가이드</h3>
             <table class="data-table">
-                <thead><tr><th>분석 항목</th><th>최적 비율</th><th>당첨 확률 가중치</th></tr></thead>
+                <thead><tr><th>분석 지표</th><th>최적 추천 비율</th><th>과거 당첨 가중치</th></tr></thead>
                 <tbody>
-                    <tr><td>홀수 : 짝수 배합</td><td>3:3 / 2:4 / 4:2</td><td>약 81.5%</td></tr>
-                    <tr><td>저번호 : 고번호 배합</td><td>3:3 / 2:4 / 4:2</td><td>약 79.2%</td></tr>
-                    <tr><td>번호 합계 범위</td><td>121 ~ 160</td><td>약 71.4%</td></tr>
+                    <tr><td>홀수 : 짝수 배합</td><td>3:3 / 2:4 / 4:2</td><td>약 81.5% 점유</td></tr>
+                    <tr><td>저번호 : 고번호 배합</td><td>3:3 / 2:4 / 4:2</td><td>약 79.2% 점유</td></tr>
                 </tbody>
             </table>
-        </div>
-
-        <div class="highlight-box">
-            <strong>💡 알고리즘 팁:</strong> 당첨 번호의 총합이 너무 낮거나(100 이하) 너무 높은(180 이상) 경우, 다음 회차에서는 평균 범위(143 내외)로 이동하려는 강력한 경향성이 발견됩니다.
-        </div>
-    </div>
-
-    <div class="content-section">
-        <h2 class="section-title">📚 로또 당첨 전략 백과사전</h2>
-        
-        <div class="article">
-            <h3>3. 제외수 설정과 연번(Consecutive Numbers) 분석</h3>
-            <p>많은 당첨자가 공통적으로 사용하는 전략 중 하나는 연번의 배제 또는 선택입니다. 한 회차에서 11, 12와 같이 연달아 붙은 번호가 나올 확률은 약 50%에 달합니다. 하지만 3개 이상의 번호가 연달아 나올 확률은 급격히 낮아집니다. 알고리즘 랩은 이러한 연번의 발생 확률을 실시간으로 계산하여 조합의 질을 높입니다.</p>
-        </div>
-
-        <div class="faq-box">
-            <h3 style="margin-bottom:25px;">❓ 전문 분석 FAQ</h3>
-            <div class="faq-item">
-                <span class="faq-q">Q: 로또 명당에서 사면 정말 당첨 확률이 높나요?</span>
-                <span class="faq-a">A: 통계적으로 '명당'은 판매량이 압도적으로 많은 곳입니다. 판매량이 많으므로 당첨자가 자주 나오는 것은 수학적 필연입니다. 명당의 기운보다는 본인이 선택한 번호의 통계적 균형이 더 중요합니다.</span>
-            </div>
-            <div class="faq-item">
-                <span class="faq-q">Q: 이월수(직전 회차 번호 재출현)는 매번 나오나요?</span>
-                <span class="faq-a">A: 직전 회차의 당첨 번호가 다음 회차에 1개 이상 재출현할 확률은 통계적으로 약 43%입니다. 따라서 1개 정도의 번호는 직전 회차에서 가져오는 전략이 유효할 수 있습니다.</span>
-            </div>
-            <div class="faq-item">
-                <span class="faq-q">Q: 특정 요일에 구매하는 것이 유리한가요?</span>
-                <span class="faq-a">A: 구매 요일과 당첨 확률 사이의 수학적 상관관계는 발견되지 않았습니다. 다만, 심리적인 여유를 가지고 분석에 충분한 시간을 들일 수 있는 요일을 권장합니다.</span>
-            </div>
-        </div>
-
-        <div class="article">
-            <h3>4. 장기 미출현수와 최근 강세수의 조화</h3>
-            <p>최근 10주간 한 번도 나오지 않은 번호를 '멸수' 또는 '미출현수'라고 합니다. 이 번호들이 한꺼번에 쏟아질 확률은 낮지만, 매 회차 1~2개씩은 출현하며 전체 번호의 균형을 맞춥니다. 본 알고리즘은 미출현수의 누적 확률을 계산하여 생성되는 조합에 적절히 배분합니다.</p>
         </div>
     </div>
 
@@ -146,13 +103,11 @@
             container.appendChild(ball);
         });
     }
-
     const contents = {
-        privacy: { title: "개인정보처리방침 (Privacy)", body: "로또 알고리즘 랩은 '개인정보 보호법'을 준수하며 이용자의 정보를 수집하지 않습니다.\n\n1. 개인정보 수집 항목: 본 사이트는 이름, 전화번호, 이메일 등 어떠한 식별 정보도 요구하거나 수집하지 않습니다.\n2. 데이터 처리 방식: 번호 생성 알고리즘은 사용자의 웹 브라우저 로컬 환경에서 실행되며, 서버로 데이터가 전송되지 않습니다.\n3. 쿠키 정책: 사이트 최적화를 위한 최소한의 기술적 쿠키만을 사용하며, 이는 마케팅 용도로 활용되지 않습니다." },
-        terms: { title: "서비스 이용약관 (Terms)", body: "제1조 (목적) 본 약관은 로또 알고리즘 랩이 제공하는 확률 분석 서비스 이용 조건을 규정합니다.\n\n제2조 (책임 한계) 본 서비스가 제공하는 모든 번호와 통계 데이터는 확률적 추정치이며, 실제 당첨 결과 및 수익을 보장하지 않습니다. 로또 구매 결정 및 그에 따른 모든 책임은 이용자 본인에게 있습니다.\n\n제3조 (사행성 방지) 본 사이트는 소액으로 즐기는 건전한 복권 문화를 지향합니다. 지나친 몰입은 가계 경제에 해가 될 수 있으므로 주의하시기 바랍니다." },
-        cs: { title: "데이터 연구소 문의 (Support)", body: "로또 알고리즘 랩 서비스 관련 제안 및 문의\n\n- 총괄팀: Lotto Algo Lab 운영본부\n- 이메일: Jtech1110@gmail.com\n- 업무시간: 평일 오전 10시 ~ 오후 5시 (주말 및 공휴일 제외)\n\n* 모든 기술적 문의는 이메일을 통해 접수해 주시면 순차적으로 답변 드리겠습니다." }
+        privacy: { title: "개인정보처리방침", body: "본 사이트는 어떠한 개인정보도 수집하지 않습니다." },
+        terms: { title: "서비스 이용약관", body: "본 서비스는 재미를 위한 것이며 당첨을 보장하지 않습니다." },
+        cs: { title: "데이터 연구소 문의", body: "문의: Jtech1110@gmail.com" }
     };
-
     function openModal(type) {
         document.getElementById('modalTitle').innerText = contents[type].title;
         document.getElementById('modalBody').innerText = contents[type].body;
