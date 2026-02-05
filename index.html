@@ -312,9 +312,35 @@
             dateCal: { title: "날짜/D-Day 계산기", content: `<div class="util-tool-container"><div class="util-input-group"><label>시작일</label><input type="date" id="date1"></div><div class="util-input-group"><label>종료일</label><input type="date" id="date2"></div><button class="util-btn-action" onclick="calculateDate()">차이 계산하기</button><div id="dateResult" class="util-result">날짜를 입력해주세요.</div></div>` },
             marginCal: { title: "전문가용 마진 계산기", content: `<div class="util-tool-container"><p style="font-size:0.8rem; color:#666; margin-bottom:15px;">수수료와 부가세를 포함한 실제 순수익 분석</p><div class="margin-calc-grid"><div><div class="util-input-group"><label>판매가 (VAT포합)</label><input type="number" id="mSell" onkeyup="calculateMargin()"></div><div class="util-input-group"><label>매입가 (VAT포함)</label><input type="number" id="mCost" onkeyup="calculateMargin()"></div><div class="util-input-group"><label>플랫폼 수수료 (%)</label><input type="number" id="mFee" value="3.5" onkeyup="calculateMargin()"></div><div class="util-input-group"><label>배송비 합계</label><input type="number" id="mShip" onkeyup="calculateMargin()"></div><div class="util-input-group"><label>기타 광고비</label><input type="number" id="mAd" onkeyup="calculateMargin()"></div></div><div class="margin-result-box"><div class="margin-row"><span>플랫폼 수수료</span><span id="resFee">0원</span></div><div class="margin-row"><span>예상 부가세</span><span id="resVat" style="color:#f87171">0원</span></div><div class="margin-row"><span>정산 예정금액</span><span id="resSettle">0원</span></div><div class="margin-row margin-total"><span>최종 순수익</span><span id="resNet">0원</span></div><div class="margin-row" style="border:none; font-weight:bold;"><span>최종 마진율</span><span id="resRate">0%</span></div></div></div></div>` },
             invoice: { title: "거래명세서 생성기 (전문 양식)", content: `<div class="util-tool-container"><div class="util-input-group" style="display:flex; gap:10px;"><div style="flex:1"><label>거래일자</label><input type="date" id="invDate" value="${new Date().toISOString().split('T')[0]}"></div><div style="flex:1"><label>증빙번호</label><input type="text" id="invBillNo"></div></div><div class="invoice-info-grid"><div class="info-card"><h4>공급자 (나)</h4><div class="util-input-group"><label>등록번호</label><input type="text" id="myReg" value="632-03-XXXXX"></div><div class="util-input-group"><label>상호/대표</label><div style="display:flex;gap:5px"><input type="text" id="myName" value="제이테크" style="width:60%"><input type="text" id="myCeo" value="이규범" style="width:40%"></div></div><div class="util-input-group"><label>주소</label><input type="text" id="myAddr" value="주소입력"></div></div><div class="info-card"><h4>공급받는 자</h4><div class="util-input-group"><label>등록번호</label><input type="text" id="targetReg"></div><div class="util-input-group"><label>상호/대표</label><div style="display:flex;gap:5px"><input type="text" id="targetName" style="width:60%"><input type="text" id="targetCeo" style="width:40%"></div></div><div class="util-input-group"><label>주소</label><input type="text" id="targetAddr"></div></div></div><div style="overflow-x:auto;"><table class="invoice-editor-table"><thead><tr><th width="30">No</th><th>품명</th><th>상품번호</th><th width="60">수량</th><th width="80">단가</th><th>공급가액</th></tr></thead><tbody id="invoiceTableBody">${Array.from({length:10}, (_, i) => `<tr><td>${i+1}</td><td><input type="text" id="invPart_${i+1}"></td><td><input type="text" id="invNo_${i+1}"></td><td><input type="number" id="invQty_${i+1}" value="0" onkeyup="calcInvLine(${i+1})"></td><td><input type="number" id="invPrice_${i+1}" value="0" onkeyup="calcInvLine(${i+1})"></td><td><input type="text" id="invSubtotal_${i+1}" value="0" readonly style="color:#888"></td></tr>`).join('')}</tbody></table></div><div class="util-input-group"><label>비고</label><input type="text" id="invMemo"></div><div class="util-result" style="display:flex; justify-content:space-around; font-size:0.85rem;"><div>공급가액: <span id="invTotalAmount">0원</span></div><div>부가세: <span id="invTotalVat">0원</span></div><div>합계: <span id="invGrandTotal">0원</span></div></div><button class="util-btn-action" onclick="printInvoiceAction()">🖨️ 인쇄 (PDF 저장)</button></div>` },
-            privacy: { title: "개인정보처리방침", content: "로또 알고리즘 랩은 이용자의 개인정보 보호를 최우선으로 합니다.\n\n1. 수집 항목 및 방법: 본 사이트는 성명, 연락처, 주민등록번호 등 개인을 식별할 수 있는 정보를 일절 수집하지 않습니다. 다만, 서비스 이용 분석을 위해 비식별 쿠키 및 방문 기록이 자동 수집될 수 있습니다.\n\n2. 이용 목적: 수집된 데이터는 구글 애드센스 광고 최적화 및 사용자 환경 개선을 위한 통계 자료로만 활용됩니다.\n\n3. 보유 기간: 브라우저 종료 시 모든 세션 정보는 즉시 파기됩니다.\n\n4. 제3자 제공: 어떠한 경우에도 외부 기관에 이용자 데이터를 제공하지 않습니다.\n\n5. 권리 행사: 사용자는 쿠키 수집을 언제든지 브라우저 설정을 통해 차단할 수 있습니다." },
-            terms: { title: "서비스 이용약관", content: "제1조 (목적): 본 약관은 로또 알고리즘 랩의 전문 데이터 분석 서비스 이용 조건을 규정합니다.\n\n제2조 (면책 조항): 제공되는 모든 데이터는 확률적 근거에 기반한 시뮬레이션 결과입니다. 실제 당첨 여부는 확률의 영역이며, 연구소는 복권 구매로 인한 어떠한 손실에 대해서도 법적 책임을 지지 않습니다.\n\n제3조 (콘텐츠 소유권): 본 사이트에 게재된 알고리즘 설명 및 텍스트 데이터는 고유한 지적 재산입니다.\n\n제4조 (건전한 문화): 사행성 조장을 방지하기 위해 1인당 적정 구매 금액 준수를 강력히 권고합니다." },
-            cs: { title: "고객 지원", content: "Jtech1110@gmail.com" }
+            privacy: { 
+                title: "개인정보처리방침", 
+                content: `<div style="line-height:1.6; text-align:left; font-size:0.9rem;">
+                    <p>로또 알고리즘 랩은 이용자의 개인정보 보호를 최우선으로 합니다.</p>
+                    <p><b>1. 수집 항목 및 방법:</b><br>본 사이트는 성명, 연락처, 주민등록번호 등 개인을 식별할 수 있는 정보를 일절 수집하지 않습니다. 다만, 서비스 이용 분석을 위해 비식별 쿠키 및 방문 기록이 자동 수집될 수 있습니다.</p>
+                    <p><b>2. 이용 목적:</b><br>수집된 데이터는 구글 애드센스 광고 최적화 및 사용자 환경 개선을 위한 통계 자료로만 활용됩니다.</p>
+                    <p><b>3. 보유 기간:</b><br>브라우저 종료 시 모든 세션 정보는 즉시 파기됩니다.</p>
+                    <p><b>4. 제3자 제공:</b><br>어떠한 경우에도 외부 기관에 이용자 데이터를 제공하지 않습니다.</p>
+                    <p><b>5. 권리 행사:</b><br>사용자는 쿠키 수집을 언제든지 브라우저 설정을 통해 차단할 수 있습니다.</p>
+                </div>` 
+            },
+            terms: { 
+                title: "서비스 이용약관", 
+                content: `<div style="line-height:1.6; text-align:left; font-size:0.9rem;">
+                    <p><b>제1조 (목적):</b><br>본 약관은 로또 알고리즘 랩의 전문 데이터 분석 서비스 이용 조건을 규정합니다.</p>
+                    <p><b>제2조 (면책 조항):</b><br>제공되는 모든 데이터는 확률적 근거에 기반한 시뮬레이션 결과입니다. 실제 당첨 여부는 확률의 영역이며, 연구소는 복권 구매로 인한 어떠한 손실에 대해서도 법적 책임을 지지 않습니다.</p>
+                    <p><b>제3조 (콘텐츠 소유권):</b><br>본 사이트에 게재된 알고리즘 설명 및 텍스트 데이터는 고유한 지적 재산입니다.</p>
+                    <p><b>제4조 (건전한 문화):</b><br>사행성 조장을 방지하기 위해 1인당 적정 구매 금액 준수를 강력히 권고합니다.</p>
+                </div>` 
+            },
+            cs: { 
+                title: "고객 지원 및 연구소 정보", 
+                content: `<div style="text-align:center; padding:20px; line-height:1.8;">
+                    <p style="font-weight:bold; color:var(--main-navy);">■ 대표 문의: <a href="mailto:Jtech1110@gmail.com" style="color:var(--data-blue); text-decoration:none;">Jtech1110@gmail.com</a></p>
+                    <p>■ 기술 운영: 평일 10:00 - 17:00</p>
+                    <hr style="border:0; border-top:1px solid #eee; margin:15px 0;">
+                    <p style="font-size:0.85rem; color:#666;">저희 로또 알고리즘 랩은 정직한 데이터 분석을 지향합니다.</p>
+                </div>` 
+            }
         };
         title.innerText = utils[type].title; body.innerHTML = utils[type].content; document.getElementById('myModal').style.display = "block";
     }
